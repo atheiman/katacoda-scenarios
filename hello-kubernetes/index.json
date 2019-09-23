@@ -8,7 +8,11 @@
       {
         "title": "Run some kubectl commands",
         "text": "1-kubectl.md"
-      }
+      },
+      {
+        "title": "Connect to an nginx pod",
+        "text": "2-nginx.md"
+      },
     ],
     "intro": {
       "text": "intro.md",
@@ -20,7 +24,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "uimessage1": "\u001b[32mYou've started a kubernetes cluster, Great job!\r\nGo ahead and run some commands with `kubectl`\u001b[m"
+    "uimessage1": "\u001b[32mYou've started a kubernetes cluster, great job!\r\nGo ahead and run some commands with `kubectl`\u001b[m"
   },
   "backend": {
     "imageid": "kubernetes"

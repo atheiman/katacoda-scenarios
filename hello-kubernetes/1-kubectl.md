@@ -1,6 +1,6 @@
-This is your first step.
+Kubernetes is starting up, it may take a few moments. You can wait for it to start with:
 
-## Task
+- `until kubectl cluster-info; do sleep 10; done`{{execute}}
 
 Run some commands with `kubectl`:
 
@@ -8,4 +8,3 @@ Run some commands with `kubectl`:
 - `kubectl version`{{execute}}
 - `kubectl get nodes`{{execute}}
 - `kubectl get namespaces`{{execute}}
-- `kubectl run nginx --image=nginx`{{execute}}
