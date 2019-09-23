@@ -8,6 +8,7 @@ done
 clear
 
 echo "Cluster is ready! Cluster information:"
+
 kubectl cluster-info
 kubectl version
-kubectl nodes
+kubectl get nodes
