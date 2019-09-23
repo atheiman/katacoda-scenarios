@@ -12,7 +12,7 @@
       {
         "title": "Connect to an nginx pod",
         "text": "2-nginx.md"
-      },
+      }
     ],
     "intro": {
       "text": "intro.md",
