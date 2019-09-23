@@ -1,14 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-  creationTimestamp: null
-  generation: 1
+  name: nginx
   labels:
     run: nginx
-  name: nginx
-  selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/nginx
 spec:
   replicas: 1
   template:
