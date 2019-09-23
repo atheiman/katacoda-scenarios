@@ -15,6 +15,14 @@
         "text": "2-nginx.md"
       }
     ],
+    "assets": {
+      "client": [
+        {
+          "file": "deployment.yaml",
+          "target": "~/"
+        }
+      ]
+    },
     "intro": {
       "text": "intro.md",
       "credits": ""
@@ -24,7 +32,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "editor-terminal",
     "uimessage1": "\u001b[32mYou've started a kubernetes cluster, great job!\r\nGo ahead and run some commands with `kubectl`\u001b[m"
   },
   "backend": {
