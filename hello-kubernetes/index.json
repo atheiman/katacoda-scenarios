@@ -7,7 +7,8 @@
     "steps": [
       {
         "title": "Run some kubectl commands",
-        "text": "1-kubectl.md"
+        "text": "1-kubectl.md",
+        "command": "cluster-startup.sh"
       },
       {
         "title": "Connect to an nginx pod",
