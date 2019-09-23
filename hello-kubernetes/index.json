@@ -17,7 +17,7 @@
     ],
     "assets": {
       "client": [
-        { "file": "*", "target": "~/", "chmod": "+x" }
+        { "file": "*", "target": "/root/", "chmod": "+x" }
       ]
     },
     "intro": {

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-until kubectl cluster-info 2&>1; do
+until kubectl cluster-info 2&>/dev/null; do
   echo "Waiting for Kubernetes cluster startup..."
   sleep 5
 done
