@@ -7,8 +7,7 @@
     "steps": [
       {
         "title": "Run some kubectl commands",
-        "text": "1-kubectl.md",
-        "code": "cluster-startup.sh"
+        "text": "1-kubectl.md"
       },
       {
         "title": "Connect to an nginx pod",
@@ -23,7 +22,8 @@
     "files": ["deployment.yaml"],
     "intro": {
       "text": "intro.md",
-      "credits": "Austin Heiman"
+      "credits": "Created by Austin Heiman",
+      "code": "cluster-startup.sh"
     },
     "finish": {
       "text": "finish.md"
