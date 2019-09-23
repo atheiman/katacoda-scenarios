@@ -16,14 +16,14 @@
       }
     ],
     "assets": {
-      "client": [
+      "master": [
         { "file": "*", "target": "/root", "chmod": "+x" }
       ]
     },
     "files": ["deployment.yaml"],
     "intro": {
       "text": "intro.md",
-      "credits": ""
+      "credits": "Austin Heiman"
     },
     "finish": {
       "text": "finish.md"
