@@ -17,7 +17,7 @@
     ],
     "assets": {
       "master": [
-        { "file": "*", "target": "/root", "chmod": "+x" }
+        { "file": "*", "target": "/root/k8s", "chmod": "+x" }
       ]
     },
     "files": ["deployment.yaml"],
@@ -31,6 +31,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
+    "uieditorpath": "/root/k8s",
     "uimessage1": "\u001b[32mYou've started a kubernetes cluster, great job!\r\nGo ahead and run some commands with `kubectl`\u001b[m",
     "icon": "fa-kubernetes"
   },

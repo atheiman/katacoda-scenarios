@@ -5,6 +5,8 @@ until kubectl cluster-info 2&>/dev/null; do
   sleep 5
 done
 
+cd /root/k8s
+
 clear
 
 echo "Cluster is ready! Cluster information:"
