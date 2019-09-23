@@ -17,10 +17,7 @@
     ],
     "assets": {
       "client": [
-        {
-          "file": "deployment.yaml",
-          "target": "~/"
-        }
+        { "file": "*", "target": "~/", "chmod": "+x" }
       ]
     },
     "intro": {
