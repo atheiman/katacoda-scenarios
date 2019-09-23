@@ -1,0 +1,28 @@
+{
+  "title": "Hello Kubernetes",
+  "description": "Env: kubernetes",
+  "difficulty": "beginner",
+  "time": "2 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Run some kubectl commands",
+        "text": "1-kubectl.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mYou've started a kubernetes cluster, Great job!\r\nGo ahead and run some commands with `kubectl`\u001b[m"
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}

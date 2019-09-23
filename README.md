@@ -1,1 +1,1 @@
-# Katacode Scenarios
+# Katacoda Scenarios
