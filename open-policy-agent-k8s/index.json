@@ -1,0 +1,41 @@
+{
+  "title": "Hello Kubernetes",
+  "description": "Env: kubernetes",
+  "difficulty": "intermediate",
+  "time": "2 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Kubernetes cluster overview",
+        "text": "01-cluster-startup.md"
+      },
+      {
+        "title": "OPA Gatekeeper Installation",
+        "text": "02-opa-gatekeeper-install.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        { "file": "*", "target": "/root/k8s", "chmod": "+x" }
+      ]
+    },
+    "files": ["deployment.yaml"],
+    "intro": {
+      "text": "intro.md",
+      "credits": "Created by Austin Heiman",
+      "code": "cluster-startup.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/k8s",
+    "uimessage1": "\u001b[32mYou've started a kubernetes cluster, great job!\r\nGo ahead and run some commands with `kubectl`\u001b[m",
+    "icon": "fa-kubernetes"
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
