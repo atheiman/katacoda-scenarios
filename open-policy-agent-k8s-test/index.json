@@ -12,6 +12,10 @@
       {
         "title": "OPA Gatekeeper Installation",
         "text": "02-opa-gatekeeper-install.md"
+      },
+      {
+        "title": "Pod Required Labels",
+        "text": "03-pod-required-labels.md"
       }
     ],
     "assets": {
@@ -19,7 +23,7 @@
         { "file": "*", "target": "/root/k8s", "chmod": "+x" }
       ]
     },
-    "files": ["deployment.yaml"],
+    "files": [],
     "intro": {
       "text": "intro.md",
       "credits": "Created by Austin Heiman",
