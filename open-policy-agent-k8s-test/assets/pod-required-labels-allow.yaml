@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-allowed
+  labels:
+    run: nginx
+    owner: some-owner
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx

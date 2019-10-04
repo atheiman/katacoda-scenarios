@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-denied
   labels:
     run: nginx
 spec:

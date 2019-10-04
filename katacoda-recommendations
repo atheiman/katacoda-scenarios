@@ -1,0 +1,3 @@
+* Verifiers
+    * Custom error message instead of "Please complete task before proceeding"
+    * Allow us to optionally see the error message produced by the verifier to make debugging easier
