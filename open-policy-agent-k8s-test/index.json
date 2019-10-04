@@ -8,27 +8,27 @@
       {
         "title": "Kubernetes cluster overview",
         "text": "01-cluster-startup.md",
-        "verify": "true"
+        "verify": "true.sh"
       },
       {
         "title": "OPA Gatekeeper Installation",
         "text": "02-opa-gatekeeper-install.md",
-        "verify": "true"
+        "verify": "true.sh"
       },
       {
         "title": "Pod Required Labels",
         "text": "03-pod-required-labels.md",
-        "verify": "true"
+        "verify": "true.sh"
       },
       {
         "title": "Namespace Required Labels",
         "text": "04-namespace-required-labels.md",
-        "verify": "true"
+        "verify": "true.sh"
       },
       {
         "title": "Container Registry Whitelist",
         "text": "05-container-registry-whitelist.md",
-        "verify": "true"
+        "verify": "true.sh"
       }
     ],
     "assets": {
