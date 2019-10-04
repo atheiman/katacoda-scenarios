@@ -8,7 +8,7 @@
       {
         "title": "Kubernetes cluster overview",
         "text": "01-cluster-startup.md",
-        "verify": "verifiers/true.sh"
+        "verify": "verifiers/cluster-up.sh"
       },
       {
         "title": "OPA Gatekeeper Installation",

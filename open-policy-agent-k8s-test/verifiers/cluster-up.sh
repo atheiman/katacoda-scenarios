@@ -1,1 +1,1 @@
-kubectl get ns && echo "done"
+kubectl get ns default && echo "done"
