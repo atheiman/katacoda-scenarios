@@ -27,7 +27,7 @@
       },
       {
         "title": "Container Registry Whitelist",
-        "text": "03-container-registry-whitelist.md",
+        "text": "05-container-registry-whitelist.md",
         "verify": "true"
       }
     ],
