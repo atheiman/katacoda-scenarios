@@ -11,7 +11,8 @@
       },
       {
         "title": "OPA Gatekeeper Installation",
-        "text": "02-opa-gatekeeper-install.md"
+        "text": "02-opa-gatekeeper-install.md",
+        "verify": "true.sh"
       },
       {
         "title": "Pod Required Labels",

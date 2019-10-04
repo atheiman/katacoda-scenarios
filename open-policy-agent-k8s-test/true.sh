@@ -1,1 +1,1 @@
-[ -d / ] && echo "done"
+true && echo "done"
