@@ -1,0 +1,1 @@
+kubectl get ns gatekeeper-system

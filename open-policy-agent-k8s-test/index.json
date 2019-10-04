@@ -7,12 +7,13 @@
     "steps": [
       {
         "title": "Kubernetes cluster overview",
-        "text": "01-cluster-startup.md"
+        "text": "01-cluster-startup.md",
+        "verify": "verifiers/true.sh"
       },
       {
         "title": "OPA Gatekeeper Installation",
         "text": "02-opa-gatekeeper-install.md",
-        "verify": "true.sh"
+        "verify": "verifiers/opa-gatekeeper-install.sh"
       },
       {
         "title": "Pod Required Labels",
