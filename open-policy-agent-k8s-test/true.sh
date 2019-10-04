@@ -1,2 +1,1 @@
-#!/bin/sh
-true
+[ -d / ] && echo "done"
