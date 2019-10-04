@@ -1,1 +1,1 @@
-kubectl get ns gatekeeper-system
+kubectl get ns gatekeeper-system && echo "done"
