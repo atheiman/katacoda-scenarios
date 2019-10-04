@@ -7,15 +7,28 @@
     "steps": [
       {
         "title": "Kubernetes cluster overview",
-        "text": "01-cluster-startup.md"
+        "text": "01-cluster-startup.md",
+        "verify": "true"
       },
       {
         "title": "OPA Gatekeeper Installation",
-        "text": "02-opa-gatekeeper-install.md"
+        "text": "02-opa-gatekeeper-install.md",
+        "verify": "true"
       },
       {
         "title": "Pod Required Labels",
-        "text": "03-pod-required-labels.md"
+        "text": "03-pod-required-labels.md",
+        "verify": "true"
+      },
+      {
+        "title": "Namespace Required Labels",
+        "text": "04-namespace-required-labels.md",
+        "verify": "true"
+      },
+      {
+        "title": "Container Registry Whitelist",
+        "text": "03-container-registry-whitelist.md",
+        "verify": "true"
       }
     ],
     "assets": {
@@ -26,7 +39,7 @@
     "files": [],
     "intro": {
       "text": "intro.md",
-      "credits": "Created by Austin Heiman",
+      "credits": "Created by Austin Heiman, Clay Thomas, Cullen McDermott",
       "code": "cluster-startup.sh"
     },
     "finish": {
