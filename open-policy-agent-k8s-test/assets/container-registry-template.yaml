@@ -23,9 +23,6 @@ spec:
       rego: |
         package whitelistedregistires
         whitelisted_registries = {registry |
-            # registries = [
-            #     "quay.io"
-            # ]
             registry = input.parameters.registries[_]
         }
         registry_whitelisted(str, patterns) {
@@ -34,10 +31,10 @@ spec:
         registry_matches(str, pattern) {
             contains(str, pattern)
         }
-        violation[{"msg": msg, "details": {"bad_registries": image}}] {
+        violation[{"msg": msg}] {
           input.review.object
           image := input.review.object.spec.containers[_].image
           name := input.review.object.metadata.name
           not registry_whitelisted(image, whitelisted_registries)
-          msg := sprintf("pod %q has invalid registry %q", [name, image])
+          msg := sprintf("pod %q has invalid registry %q. Registry should be one of %v", [name, image, whitelisted_registries])
         }
