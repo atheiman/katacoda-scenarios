@@ -5,5 +5,11 @@ metadata:
 spec:
   match:
     namespace: ["default"]
+    kinds:
+    - apiGroups: [""]
+      kinds: ["Namespace", "Pod"]
+    - apiGroups: ["apps"]
+      kinds: ["Deployment"]
   parameters:
-    labels: ["owner"]
+    labels:
+    - owner

@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-valid
+  labels:
+    owner: busybox-owner
+spec:
+  containers:
+  - name: busybox
+    image: quay.io/busybox
+    args:
+    - sleep
+    - "1000000"
+---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: registry-nginx-invalid
+#   labels:
+#     app: nginx
+#     owner: nginx-owner
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: nginx
+#   template:
+#     metadata:
+#       labels:
+#         app: nginx
+#         owner: nginx-owner
+#     spec:
+#       containers:
+#       - name: nginx
+#         image: nginx:1.7.9
+#         ports:
+#         - containerPort: 80

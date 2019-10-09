@@ -24,7 +24,7 @@ spec:
         package whitelistedregistires
         whitelisted_registries = {registry |
             registries = [
-                "602401143452.dkr.ecr.us-east-1.amazonaws.com"
+                "quay.io"
             ]
             registry = registries[_]
         }
