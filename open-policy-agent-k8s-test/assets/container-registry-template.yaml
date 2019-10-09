@@ -23,10 +23,10 @@ spec:
       rego: |
         package whitelistedregistires
         whitelisted_registries = {registry |
-            registries = [
-                "quay.io"
-            ]
-            registry = registries[_]
+            # registries = [
+            #     "quay.io"
+            # ]
+            registry = input.parameters.registries[_]
         }
         registry_whitelisted(str, patterns) {
             registry_matches(str, patterns[_])

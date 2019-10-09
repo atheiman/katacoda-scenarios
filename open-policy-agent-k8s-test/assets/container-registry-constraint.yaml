@@ -7,3 +7,6 @@ spec:
     kinds:
       - apiGroups: [""]
         kinds: ["Pod"]
+  parameters:
+    registries:
+    - quay.io
