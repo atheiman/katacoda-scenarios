@@ -11,6 +11,11 @@ source <(kubectl completion bash)
 
 cd /root/k8s
 
+# Install kubectx/kubens.
+git clone https://github.com/ahmetb/kubectx /opt/kubectx
+ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+
 clear
 
 echo "Cluster is ready! Cluster information:"

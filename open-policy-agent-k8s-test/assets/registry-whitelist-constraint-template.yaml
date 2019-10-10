@@ -10,14 +10,13 @@ spec:
         listKind: WhitelistedRegistryList
         plural: whitelistedregistries
         singular: whitelistedregistry
-      ## not needed for now as registry list is hardcoded in the rego below
-      # validation:
-      #   # Schema for the `parameters` field in the constraint
-      #   openAPIV3Schema:
-      #     properties:
-      #       registries:
-      #         type: array
-      #         items: string
+      validation:
+        # Schema for the `parameters` field in the constraint
+        openAPIV3Schema:
+          properties:
+            registries:
+              type: array
+              items: string
   targets:
     - target: admission.k8s.gatekeeper.sh
       rego: |
