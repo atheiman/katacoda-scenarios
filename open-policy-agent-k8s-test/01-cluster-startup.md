@@ -6,3 +6,5 @@ run some commands with `kubectl`:
 - `kubectl get nodes`{{execute}}
 - `kubectl get namespaces`{{execute}}
 - `kubectl get pods --all-namespaces`{{execute}}
+
+Press continue once ready to move on.

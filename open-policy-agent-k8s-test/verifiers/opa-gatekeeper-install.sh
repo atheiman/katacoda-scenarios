@@ -1,1 +1,1 @@
-kubectl get ns gatekeeper-system && echo "done"
+kubectl get pods -n gatekeeper-system | grep gatekeeper-controller-manager-0 | grep Running
