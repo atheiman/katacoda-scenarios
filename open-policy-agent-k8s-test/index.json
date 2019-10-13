@@ -2,7 +2,7 @@
   "title": "Gatekeeper - Test",
   "description": "Env: kubernetes",
   "difficulty": "intermediate",
-  "time": "2 minutes",
+  "time": "30 minutes",
   "details": {
     "steps": [
       {
@@ -44,7 +44,7 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal",
+    "uilayout": "terminal",
     "uieditorpath": "/root/k8s",
     "uimessage1": "\u001b[32mYou've started a kubernetes cluster, great job!\r\nGo ahead and run some commands with `kubectl`\u001b[m",
     "icon": "fa-kubernetes"
