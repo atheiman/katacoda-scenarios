@@ -9,5 +9,5 @@ spec:
   - name: busybox
     image: busybox
     args:
-    - sleep
-    - "1000000"
+      - sleep
+      - "1000000"

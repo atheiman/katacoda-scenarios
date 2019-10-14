@@ -1,1 +1,1 @@
-kubectl get pods -n gatekeeper-system | grep gatekeeper-controller-manager-0 | grep Running && echo "done"
+kubectl wait -n gatekeeper-system pod --all --for=condition=Ready --timeout=3m && echo "done"

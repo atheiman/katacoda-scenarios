@@ -1,1 +1,1 @@
-kubectl get ns default && echo "done"
+kubectl wait node --all --for=condition=Ready --timeout=3m && echo "done"
