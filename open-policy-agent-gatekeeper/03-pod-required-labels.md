@@ -17,6 +17,6 @@ Gatekeeper defines two types of Kubernetes custom resources for creating policie
 1. Delete the deployed pod before proceeding to the challenge:
    `kubectl delete pod busybox-valid`{{execute}}
 
-# CHALLENGE
+## CHALLENGE
 
 Update the `required-labels-constraint.yaml` to require another label `team`. Then re-submit the new constraint along with a new pod that also specifies the `team` label before continuing.
