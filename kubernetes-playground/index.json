@@ -1,17 +1,17 @@
 {
-  "title": "Hello Kubernetes v2",
-  "description": "Env: kubernetes",
-  "difficulty": "intermediate",
+  "title": "Kubernetes Playground",
+  "description": "Single node Kubernetes cluster playground",
+  "difficulty": "beginner",
   "time": "2 minutes",
   "details": {
     "steps": [
       {
-        "title": "Kubernetes cluster overview",
+        "title": "Kubernetes Cluster Startup",
         "text": "01-cluster-startup.md"
       },
       {
-        "title": "OPA Gatekeeper Installation",
-        "text": "02-opa-gatekeeper-install.md"
+        "title": "Nginx Deployment",
+        "text": "02-nginx-deployment.md"
       }
     ],
     "assets": {
@@ -32,7 +32,7 @@
   "environment": {
     "uilayout": "editor-terminal",
     "uieditorpath": "/root/k8s",
-    "uimessage1": "\u001b[32mYou've started a kubernetes cluster, great job!\r\nGo ahead and run some commands with `kubectl`\u001b[m",
+    "uimessage1": "\u001b[32mYour Kubernetes cluster is starting up...\u001b[m",
     "icon": "fa-kubernetes"
   },
   "backend": {
