@@ -1,4 +1,4 @@
-1. Install the required labels constraint for namespaces, clusterroles, non-namespaced objects in the `default` namespace:
+1. Install the required labels constraint for Namespaces, ClusterRoles, non-namespaced objects in the `default` namespace:
    `kubectl apply -f namespaced-objects-constraint.yaml`{{execute}}
 1. Create a namespace and show deny
 1. Create a namespace and show success

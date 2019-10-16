@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: busybox-valid
+  name: busybox-invalid
   labels:
     owner: busybox-owner
 spec:
   containers:
   - name: busybox
-    image: quay.io/busybox
+    image: busybox
     args:
-    - sleep
-    - "1000000"
+      - sleep
+      - "1000000"
 ---
 # apiVersion: apps/v1
 # kind: Deployment
