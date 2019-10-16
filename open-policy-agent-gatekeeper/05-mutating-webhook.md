@@ -3,8 +3,8 @@
 Delete the previously deployed Gatekeeper Constraints so we don't have conflicts in this exercise:
 
 ```
-k delete -n default constraints.gatekeeper.sh RequiredLabels
-k delete -n default constraints.gatekeeper.sh WhitelistedRegistry
+k delete -n default requiredlabels all-resources-must-have-owner
+k delete -n default whitelistedregistry whitelisted-registry
 ```{{execute}}
 
 The previous two exercises demonstrated the power of validating admissions controllers that will reject resources that do not meet the policy specified by the Gatekeeper ConstraintTemplate. OPA Gatekeeper currently does not support generating Mutating admissions controllers based on ConstraintTemplates but to demonstrate a working example, we will use a simple REST API (Ruby Sinatra app) running in the Kubernetes cluster.
@@ -28,7 +28,7 @@ sed -i -e "s/CA_BUNDLE_HERE/$ca_bundle/g" mutating-webhook.yaml
 
 Now we can upload our Mutating Webhook to start receiving updates from the Kubernetes API: `kubectl apply -f mutating-webhook.yaml`{{execute}}
 
-Wait for our mutating webhook to become ready: `kubectl wait -n sinatra-mutating-webhook pod --all --for=condition=Ready`{{execute}}
+Wait for our mutating webhook to become ready: `kubectl wait -n sinatra-mutating-webhook pod --all --for=condition=Ready --timeout=45s`{{execute}}
 
 Finally, to see this working in action we can upload some pods to see it adding a label to each pod _unless_ they specify a specific annotation to skip attaching a label: `kubectl apply -f mutating-webhook-pod-test.yaml`{{execute}}
 
