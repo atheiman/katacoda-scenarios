@@ -1,6 +1,11 @@
 # Mutating admissions controller
 
-Delete the previously deployed label Constraint so we don't have conflicts in this exercise: `k delete -n default constraints.gatekeeper.sh RequiredLabels`{{execute}}
+Delete the previously deployed Gatekeeper Constraints so we don't have conflicts in this exercise:
+
+```
+k delete -n default constraints.gatekeeper.sh RequiredLabels
+k delete -n default constraints.gatekeeper.sh WhitelistedRegistry
+```{{execute}}
 
 The previous two exercises demonstrated the power of validating admissions controllers that will reject resources that do not meet the policy specified by the Gatekeeper ConstraintTemplate. OPA Gatekeeper currently does not support generating Mutating admissions controllers based on ConstraintTemplates but to demonstrate a working example, we will use a simple REST API (Ruby Sinatra app) running in the Kubernetes cluster.
 
@@ -16,13 +21,21 @@ To simplify this, run the following to generate, sign, and upload a certificate 
 
 Before we upload our Mutating Webhook, we need to include the Kubernetes cluster CA bundle in our configuration:
 
-```shell
+```
 ca_bundle=$(kubectl get configmap -n kube-system extension-apiserver-authentication -o=jsonpath='{.data.client-ca-file}' | base64 | tr -d '\n')
-sed -i -e "s/CA_BUNDLE_HERE/$ca_bundle/g" manifest.yaml
+sed -i -e "s/CA_BUNDLE_HERE/$ca_bundle/g" mutating-webhook.yaml
 ```{{execute}}
 
 Now we can upload our Mutating Webhook to start receiving updates from the Kubernetes API: `kubectl apply -f mutating-webhook.yaml`{{execute}}
 
+Wait for our mutating webhook to become ready: `kubectl wait -n sinatra-mutating-webhook pod --all --for=condition=Ready`{{execute}}
+
 Finally, to see this working in action we can upload some pods to see it adding a label to each pod _unless_ they specify a specific annotation to skip attaching a label: `kubectl apply -f mutating-webhook-pod-test.yaml`{{execute}}
 
 Run the following to see which pods were mutated by having a `fun` label attached. Notice that the `excluded` pod was skipped since it had a `mutating-webhook.example.com/exclude` annotation on it: `kubectl get po -n sinatra-mutating-webhook-test --show-labels`{{execute}}
+
+You can also view the logs of our Mutating Webhook to view the response object returned to the Kubernetes API.
+
+Finally, feel free to view the sample REST api code by inspecting `mutating_webhook.rb` to see the logic behind this example or to extend it if you are familiar with Ruby/Sinatra.
+
+Credit for this mutating webhook goes to Austin Heiman with the code located [here](https://github.com/atheiman/kubernetes/tree/master/sinatra-mutating-webhook).

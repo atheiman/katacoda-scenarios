@@ -10,3 +10,5 @@ spec:
   parameters:
     registries:
       - quay.io
+      - k8s.gcr.io
+      - atheiman
