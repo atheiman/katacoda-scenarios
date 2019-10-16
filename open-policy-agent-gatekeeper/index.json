@@ -20,12 +20,12 @@
         "text": "03-pod-required-labels.md"
       },
       {
-        "title": "Namespace Required Labels",
-        "text": "04-namespace-required-labels.md"
+        "title": "Container Registry Whitelist",
+        "text": "04-container-registry-whitelist.md"
       },
       {
-        "title": "Container Registry Whitelist",
-        "text": "05-container-registry-whitelist.md"
+        "title": "Mutating admissions controllers",
+        "text": "05-mutating-webhook.md"
       }
     ],
     "assets": {

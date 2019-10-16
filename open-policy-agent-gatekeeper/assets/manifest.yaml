@@ -1,0 +1,89 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sinatra-mutating-webhook
+  namespace: sinatra-mutating-webhook
+  labels:
+    run: sinatra-mutating-webhook
+spec:
+  ports:
+  - name: webhook
+    port: 443
+    targetPort: 443
+  selector:
+    run: sinatra-mutating-webhook
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: sinatra-mutating-webhook
+  namespace: sinatra-mutating-webhook
+  labels:
+    run: sinatra-mutating-webhook
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: sinatra-mutating-webhook
+      labels:
+        run: sinatra-mutating-webhook
+    spec:
+      containers:
+        - name: webhook
+          image: atheiman/sinatra-mutating-webhook
+          imagePullPolicy: Always
+          env:
+          - name: PASSENGER_PORT
+            value: "443"
+          - name: PASSENGER_SSL
+            value: "true"
+          - name: PASSENGER_SSL_CERTIFICATE
+            value: /webhook-ssl/cert.pem
+          - name: PASSENGER_SSL_CERTIFICATE_KEY
+            value: /webhook-ssl/key.pem
+          volumeMounts:
+            - name: webhook-ssl
+              mountPath: /webhook-ssl
+              readOnly: true
+          ports:
+            - containerPort: 443
+              name: webhook
+          livenessProbe:
+            httpGet:
+              scheme: HTTPS
+              path: /health
+              port: webhook
+            initialDelaySeconds: 15
+          readinessProbe:
+            httpGet:
+              scheme: HTTPS
+              path: /health
+              port: webhook
+            initialDelaySeconds: 15
+      volumes:
+        - name: webhook-ssl
+          secret:
+            secretName: sinatra-mutating-webhook
+---
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: sinatra-mutating-webhook
+webhooks:
+  - name: sinatra-mutating-webhook.example.com
+    clientConfig:
+      service:
+        name: sinatra-mutating-webhook
+        namespace: sinatra-mutating-webhook
+        path: "/fun-label"
+      caBundle: "CA_BUNDLE_HERE"
+    rules:
+      - operations: ["CREATE","UPDATE"]
+        apiGroups: [""]
+        apiVersions: ["v1"]
+        resources: ["pods"]
+    failurePolicy: Fail
+    namespaceSelector:
+      matchLabels:
+        sinatra-mutating-webhook: enabled
