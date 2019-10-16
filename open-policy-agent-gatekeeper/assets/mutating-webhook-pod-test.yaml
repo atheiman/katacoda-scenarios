@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sinatra-mutating-webhook-test
+  labels:
+    sinatra-mutating-webhook: enabled
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name:      has-labels
+  namespace: sinatra-mutating-webhook-test
+  labels:
+    test: label
+spec:
+  containers:
+    - name:  app
+      image: k8s.gcr.io/pause
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name:      no-labels
+  namespace: sinatra-mutating-webhook-test
+spec:
+  containers:
+    - name:  app
+      image: k8s.gcr.io/pause
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name:      excluded
+  namespace: sinatra-mutating-webhook-test
+  annotations:
+    mutating-webhook.example.com/exclude: "true"
+spec:
+  containers:
+    - name:  app
+      image: k8s.gcr.io/pause
