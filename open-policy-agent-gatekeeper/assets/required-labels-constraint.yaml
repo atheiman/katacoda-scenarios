@@ -1,7 +1,7 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: RequiredLabels
 metadata:
-  name: all-resources-must-have-owner
+  name: resources-must-have-owner
 spec:
   match:
     namespace: ["default"]

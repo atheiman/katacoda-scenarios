@@ -3,8 +3,7 @@
 Delete the previously deployed Gatekeeper Constraints so we don't have conflicts in this exercise:
 
 ```
-k delete -n default requiredlabels all-resources-must-have-owner
-k delete -n default whitelistedregistry whitelisted-registry
+kubectl delete --all-namespaces requiredlabels,whitelistedregistry --all
 ```{{execute}}
 
 The previous two exercises demonstrated the power of validating admissions controllers that will reject resources that do not meet the policy specified by the Gatekeeper ConstraintTemplate. OPA Gatekeeper currently does not support generating Mutating admissions controllers based on ConstraintTemplates but to demonstrate a working example, we will use a simple REST API (Ruby Sinatra app) running in the Kubernetes cluster.
@@ -34,8 +33,11 @@ Finally, to see this working in action we can upload some pods to see it adding 
 
 Run the following to see which pods were mutated by having a `fun` label attached. Notice that the `excluded` pod was skipped since it had a `mutating-webhook.example.com/exclude` annotation on it: `kubectl get po -n sinatra-mutating-webhook-test --show-labels`{{execute}}
 
-You can also view the logs of our Mutating Webhook to view the response object returned to the Kubernetes API.
+You can also view the logs of our Mutating Webhook to view the response object returned to the Kubernetes API: `kubectl logs -n sinatra-mutating-webhook deploy/sinatra-mutating-webhook | grep -v 'GET /health'`{{execute}}
 
-Finally, feel free to view the sample REST api code by inspecting `mutating_webhook.rb` to see the logic behind this example or to extend it if you are familiar with Ruby/Sinatra.
+Finally, feel free to view the sample REST api code by inspecting `mutating_webhook.rb` to see the logic behind this example or to extend it if you are familiar with Ruby/Sinatra:
+
+- `MUTATING_WEBHOOK_POD=$(kubectl get pod -n sinatra-mutating-webhook -l run=sinatra-mutating-webhook -o jsonpath='{.items[0].metadata.name}')`{{execute}}
+- `kubectl exec -n sinatra-mutating-webhook $MUTATING_WEBHOOK_POD -- cat /app/mutating_webhook.rb`{{execute}}
 
 Credit for this mutating webhook goes to Austin Heiman with the code located [here](https://github.com/atheiman/kubernetes/tree/master/sinatra-mutating-webhook).
