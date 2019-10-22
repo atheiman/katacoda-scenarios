@@ -1,0 +1,20 @@
+{
+  "title": "Open Policy Agent Workshop",
+  "description": "---",
+  "courses": [
+    {
+      "pathway_id": "austinheiman",
+      "title": "OPA Gatekeeper",
+      "id": "open-policy-agent-gatekeeper",
+      "course_id": "open-policy-agent-gatekeeper",
+      "description": "Examples of Kubernetes policy enforcement using Open Policy Agent Gatekeeper. Created for DevOps Days KC 2019."
+    },
+    {
+      "pathway_id": "austinheiman",
+      "title": "Kubernetes Playground",
+      "id": "kubernetes-playground",
+      "course_id": "kubernetes-playground",
+      "description": "Single node Kubernetes cluster playground"
+    }
+  ]
+}
