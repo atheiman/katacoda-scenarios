@@ -7,4 +7,4 @@
 
 ## CHALLENGE
 
-Update the constraint to permit another container registry source, gcr.io
+Update the constraint to permit another container registry source, gcr.io. Then try running a pod with the Docker image `gcr.io/kuar-demo/kuard-amd64:blue`
