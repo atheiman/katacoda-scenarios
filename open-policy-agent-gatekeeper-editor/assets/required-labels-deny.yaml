@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-invalid
+  labels:
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    args:
+      - sleep
+      - "1000000"

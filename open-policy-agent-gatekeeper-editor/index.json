@@ -1,0 +1,56 @@
+{
+  "title": "OPA Gatekeeper",
+  "description": "Examples of Kubernetes policy enforcement using Open Policy Agent Gatekeeper. Created for DevOps Days KC 2019.",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Kubernetes cluster overview",
+        "text": "01-cluster-startup.md",
+        "verify": "verifiers/cluster-up.sh"
+      },
+      {
+        "title": "OPA Gatekeeper Installation",
+        "text": "02-opa-gatekeeper-install.md",
+        "verify": "verifiers/opa-gatekeeper-install.sh"
+      },
+      {
+        "title": "Pod Required Labels",
+        "text": "03-pod-required-labels.md"
+      },
+      {
+        "title": "Container Registry Whitelist",
+        "text": "04-container-registry-whitelist.md",
+        "verify": "verifiers/remove-validating-webhooks.sh"
+      },
+      {
+        "title": "Mutating admissions controllers",
+        "text": "05-mutating-webhook.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        { "file": "*", "target": "/root/k8s", "chmod": "+x" }
+      ]
+    },
+    "files": [],
+    "intro": {
+      "text": "intro.md",
+      "credits": "Created by Austin Heiman, Clay Thomas, Cullen McDermott",
+      "code": "cluster-startup.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/k8s",
+    "uimessage1": "\u001b[32mYour Kubernetes cluster is starting up...\u001b[m",
+    "icon": "fa-kubernetes"
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}

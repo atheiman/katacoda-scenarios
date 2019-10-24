@@ -1,0 +1,39 @@
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: whitelistedregistry
+spec:
+  crd:
+    spec:
+      names:
+        kind: WhitelistedRegistry
+        listKind: WhitelistedRegistryList
+        plural: whitelistedregistries
+        singular: whitelistedregistry
+      validation:
+        # Schema for the `parameters` field in the constraint
+        openAPIV3Schema:
+          properties:
+            registries:
+              type: array
+              items: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package whitelistedregistires
+        whitelisted_registries = {registry |
+            registry = input.parameters.registries[_]
+        }
+        registry_whitelisted(str, patterns) {
+            registry_matches(str, patterns[_])
+        }
+        registry_matches(str, pattern) {
+            contains(str, pattern)
+        }
+        violation[{"msg": msg}] {
+          input.review.object
+          image := input.review.object.spec.containers[_].image
+          name := input.review.object.metadata.name
+          not registry_whitelisted(image, whitelisted_registries)
+          msg := sprintf("pod %q has invalid registry %q. Registry should be one of %v", [name, image, whitelisted_registries])
+        }
