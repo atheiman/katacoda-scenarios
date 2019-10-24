@@ -1,5 +1,5 @@
 {
-  "title": "OPA Gatekeeper",
+  "title": "OPA Gatekeeper with Editor",
   "description": "Examples of Kubernetes policy enforcement using Open Policy Agent Gatekeeper. Created for DevOps Days KC 2019.",
   "difficulty": "intermediate",
   "time": "30 minutes",
