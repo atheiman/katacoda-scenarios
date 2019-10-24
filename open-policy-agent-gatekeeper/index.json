@@ -21,7 +21,8 @@
       },
       {
         "title": "Container Registry Whitelist",
-        "text": "04-container-registry-whitelist.md"
+        "text": "04-container-registry-whitelist.md",
+        "verify": "verifiers/remove-validating-webhooks.sh"
       },
       {
         "title": "Mutating admissions controllers",

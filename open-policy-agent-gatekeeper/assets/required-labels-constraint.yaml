@@ -7,7 +7,7 @@ spec:
     namespace: ["default"]
     kinds:
     - apiGroups: [""]
-      kinds: ["Namespace", "Pod"]
+      kinds: ["Pod"]
     - apiGroups: ["apps"]
       kinds: ["Deployment"]
   parameters:

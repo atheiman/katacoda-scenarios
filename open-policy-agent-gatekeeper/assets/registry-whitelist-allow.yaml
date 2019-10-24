@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: busybox
-    image: quay.io/busybox
+    image: quay.io/prometheus/busybox
     args:
       - sleep
       - "1000000"

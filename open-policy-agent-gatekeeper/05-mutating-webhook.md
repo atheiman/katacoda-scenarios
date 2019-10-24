@@ -1,11 +1,5 @@
 # Mutating admissions controller
 
-Delete the previously deployed Gatekeeper Constraints so we don't have conflicts in this exercise:
-
-```
-kubectl delete --all-namespaces requiredlabels,whitelistedregistry --all
-```{{execute}}
-
 The previous two exercises demonstrated the power of validating admissions controllers that will reject resources that do not meet the policy specified by the Gatekeeper ConstraintTemplate. OPA Gatekeeper currently does not support generating Mutating admissions controllers based on ConstraintTemplates but to demonstrate a working example, we will use a simple REST API (Ruby Sinatra app) running in the Kubernetes cluster.
 
 Similar to Validating admissions controllers, Mutating admissions controllers can be configured to be notified when specific events happen in the cluster like a CREATE or UPDATE. Instead of returning a yes or no response to the Kubernetes API, a Mutating admissions controller will return a [JSON patch](http://jsonpatch.com/) object that will tell Kubernetes how to modify the incoming resource.
