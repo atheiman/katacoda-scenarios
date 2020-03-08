@@ -4,7 +4,7 @@ metadata:
   name: resources-must-have-owner
 spec:
   match:
-    namespace: ["default"]
+    namespaces: ["default"]
     kinds:
     - apiGroups: [""]
       kinds: ["Pod"]
