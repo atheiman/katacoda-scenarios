@@ -7,8 +7,7 @@
     "steps": [
       {
         "title": "Kubernetes cluster overview",
-        "text": "01-cluster-startup.md",
-        "verify": "verifiers/cluster-up.sh"
+        "text": "01-cluster-startup.md"
       },
       {
         "title": "OPA Gatekeeper Installation",
