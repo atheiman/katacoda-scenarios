@@ -20,7 +20,7 @@ spec:
   targets:
     - target: admission.k8s.gatekeeper.sh
       rego: |
-        package whitelistedregistires
+        package whitelistedregistries
         whitelisted_registries = {registry |
             registry = input.parameters.registries[_]
         }
